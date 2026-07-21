@@ -8,6 +8,9 @@ Created on Mon Nov 20 08:01:29 2023
 Author: filippi_j
 """
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Suppresses INFO and WARNING logs
+
 import pytest
 import matplotlib.pyplot as plt
 import numpy as np
@@ -179,3 +182,10 @@ def test_plot_sobol_indices(setup_plotting):
         plot_sobol_indices(Si_ros, params, y_pos, model_name)
     except Exception as e:
         pytest.fail(f"plot_sobol_indices raised an exception: {e}")
+
+def main():
+    test_sobol_analysis()
+
+
+if __name__ == "__main__":
+    main()
